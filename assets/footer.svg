@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 220" width="1600" height="220" role="img" aria-label="Footer">
+<defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#ffd23f"/><stop offset=".5" stop-color="#3ec5ff"/><stop offset="1" stop-color="#4dffb0"/></linearGradient><clipPath id="c"><rect width="1600" height="220" rx="28"/></clipPath></defs>
+<g clip-path="url(#c)"><rect width="1600" height="220" fill="#0a1020"/>
+<g fill="none" stroke="url(#g)" stroke-width="5" stroke-linecap="round"><path opacity=".5" d="M0 130Q100 60 200 130T400 130T600 130T800 130T1000 130T1200 130T1400 130T1600 130T1800 130T2000 130T2200 130T2400 130"><animateTransform attributeName="transform" type="translate" values="0 0;-800 0" dur="6s" repeatCount="indefinite"/></path>
+<path d="M0 160Q100 100 200 160T400 160T600 160T800 160T1000 160T1200 160T1400 160T1600 160T1800 160T2000 160T2200 160T2400 160"><animateTransform attributeName="transform" type="translate" values="-800 0;0 0" dur="9s" repeatCount="indefinite"/></path></g>
+<text x="800" y="70" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="30" font-weight="700" fill="#f2f5fb">Loop smart. Validate everything. Bill fairly.</text>
+<text x="800" y="200" text-anchor="middle" font-family="Segoe UI,Helvetica,Arial,sans-serif" font-size="22" fill="#e6ecfa">Built with Python 3  ·  python-loops-electricity-bill-calculator<animate attributeName="opacity" values="1;.55;1" dur="3s" repeatCount="indefinite"/></text></g></svg>

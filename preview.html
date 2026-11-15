@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Smart Electricity Bill Calculator — Preview</title>
+<style>
+:root{color-scheme:dark;--bg:#080d1a;--ink:#f2f5fb;--mut:#9fb0d6;--y:#ffd23f;--g:#4dffb0;--card:#111a33}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Segoe UI",Helvetica,Arial,sans-serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+main{max-width:1000px;margin:auto;padding:20px}img{width:100%;height:auto;display:block;border-radius:20px}
+h2{margin:48px 0 14px;font-size:28px}p{color:var(--mut);max-width:70ch}
+.calc{background:var(--card);border-radius:20px;padding:24px;display:grid;gap:16px;border:1px solid #26396b}
+label{display:grid;gap:6px;font-weight:600}input{font:inherit;padding:12px;border-radius:12px;border:1px solid #34509a;background:#080d1a;color:var(--ink)}
+input:focus-visible{outline:3px solid var(--y)}
+pre{background:#040710;border-radius:14px;padding:18px;overflow-x:auto;color:var(--g);font-size:16px;margin:0;min-height:170px}
+</style></head><body><main>
+<img src="assets/header.svg" alt="Smart Electricity Bill Calculator header">
+<h2>Try the calculator</h2><p>Enter units for each household, separated by commas. Text or negative entries are skipped, like the program's <code>continue</code> statement does.</p>
+<div class="calc"><label>Units per household<input id="u" value="80, 150, 250"></label><pre id="o" aria-live="polite"></pre></div>
+<h2>How the tiers add up</h2><img src="assets/tiers-chart.svg" alt="Bill by units consumed chart">
+<h2>Program flow</h2><img src="assets/flowchart.svg" alt="Program flowchart">
+<h2>Data model</h2><img src="assets/er-diagram.svg" alt="ER diagram">
+<h2>Example report</h2><img src="assets/revenue-chart.svg" alt="Example revenue chart">
+<h2></h2><img src="assets/footer.svg" alt="Footer">
+<p style="text-align:center;color:var(--mu)">Author: Maida Javed</p>
+</main><script>
+const u=document.getElementById('u'),o=document.getElementById('o');
+function bill(n){return n<=100?n*10:n<=200?1000+(n-100)*15:2500+(n-200)*20}
+function run(){const t=u.value.split(',').map(s=>s.trim()).filter(s=>s!=='');
+if(!t.length){o.textContent="Enter at least one household.";return}
+let rev=0,ok=0,hi=0,hh=0,out='';
+t.forEach((s,i)=>{out+=`--- Household ${i+1} ---\n`;
+if(!/^-?\d+$/.test(s)){out+=`"${s}" is not a whole number. Skipped.\n`;return}
+const n=parseInt(s,10);if(n<0){out+="Units cannot be negative. Skipped.\n";return}
+const b=bill(n);out+=`Units Consumed: ${n}\nElectricity Bill: Rs. ${b}\n`;rev+=b;ok++;if(b>hi){hi=b;hh=i+1}});
+out+=`\n===== MONTHLY REVENUE REPORT =====\nHouseholds Processed: ${t.length}\nSuccessful Calculations: ${ok}\n`;
+out+=ok?`Total Revenue: Rs. ${rev}\nAverage Bill: Rs. ${(rev/ok).toFixed(2)}\nHighest Bill: Rs. ${hi} (Household ${hh})`:"No valid household bills were calculated.";
+o.textContent=out}
+u.oninput=run;run();
+</script></body></html>

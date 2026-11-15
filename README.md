@@ -1,3 +1,7 @@
+<p align="center"><img src="assets/header.svg" alt="Smart Electricity Bill Calculator" width="100%"></p>
+
+<p align="center"><a href="preview.html"><b>▶ Open the interactive preview (preview.html)</b></a></p>
+
 # Python Loops: Smart Electricity Bill Calculator
 
 A beginner-friendly, console-based Python program that calculates tiered electricity bills for multiple households. It demonstrates `while` loops, `for` loops, `range()`, accumulators, conditional statements, input validation, exception handling, `continue`, and summary calculations.
@@ -27,6 +31,8 @@ The program uses progressive (tiered) billing:
 | Units above 200 | Rs. 20 per unit |
 
 Each rate applies only to the units within its tier.
+
+![Bill by units consumed](assets/tiers-chart.svg)
 
 ### Example Calculations
 
@@ -119,6 +125,10 @@ if successful_counts > 0:
 
 The average is calculated using only successful bill calculations. If there are no valid entries, the program displays a message instead of dividing by zero.
 
+### Program Flowchart
+
+![Program flowchart](assets/flowchart.svg)
+
 ## 4. Program Features
 
 1. Validates that the household count is a whole number greater than zero.
@@ -137,6 +147,12 @@ The average is calculated using only successful bill calculations. If there are 
 
 **Counting note:** `Households Processed` displays the total number originally requested. `Successful Calculations` counts only households with valid, non-negative whole-number unit entries.
 
+## Data Model (ER Diagram)
+
+The program stores no database; this diagram shows how its data relates conceptually.
+
+![ER diagram](assets/er-diagram.svg)
+
 ## 5. Python Concepts Demonstrated
 
 | Concept | How it is used |
@@ -151,6 +167,10 @@ The average is calculated using only successful bill calculations. If there are 
 | Accumulators | Tracks total revenue and successful calculations |
 | Comparison | Finds a bill greater than the current highest bill |
 | Arithmetic | Calculates bills and the average |
+
+## Preview
+
+Open [`preview.html`](preview.html) in any browser for an interactive calculator and all diagrams in one page. After enabling GitHub Pages for this repository, it is also available at `https://<your-username>.github.io/python-loops-electricity-bill-calculator/preview.html`.
 
 ## 6. How to Run the Program
 
@@ -202,6 +222,8 @@ Average Bill: Rs. 2016.67
 Highest Bill: Rs. 3500 (Household 3)
 ```
 
+![Example report chart](assets/revenue-chart.svg)
+
 ## 8. Input Validation Examples
 
 - **Household count entered as text:** The program displays an error and asks again.
@@ -233,5 +255,14 @@ After studying this program, students should be able to:
 ## Suggested Git Commit
 
 ```text
-Update README to document electricity bill calculator logic
+README to document electricity bill calculator logic
 ```
+
+
+<div align="center">
+
+<p align="center"><img src="assets/footer.svg" alt="Footer" width="100%"></p>
+
+<p><b>Author:</b> Maida Javed</p>
+
+</div>
